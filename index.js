@@ -13,7 +13,8 @@ const app = express();
 //*Database Connection
 app.listen(8080)
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.connection).then(_ => console.log("Connected !")).catch(err => console.log("Error" + err.toString()))
+mongoose.connect(process.env.connection,{  useNewUrlParser: true,
+    useUnifiedTopology: true,}).then(_ => console.log("Connected !")).catch(err => console.log("Error" + err.toString()))
 
 //! MiddleWares
 app.use((req, res, next) => {
